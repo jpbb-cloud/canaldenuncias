@@ -1,5 +1,6 @@
 # Archivos sensibles
 .env
+.csv
 *.key
 *.pem
 *.crt
