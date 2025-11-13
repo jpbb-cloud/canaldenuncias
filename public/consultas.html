@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Consulta de Denuncia</title>
+  <link rel="stylesheet" href="style.css">       <!-- Estilos generales -->
+  <link rel="stylesheet" href="consulta.css">    <!-- Estilos específicos -->
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo"><img src="logo.png" alt="ComunicaLO"></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="denuncia.html">Denuncia</a></li>
+        <li><a href="consultas.html">Consulta</a></li>
+        <li><a href="preguntas.html">Preguntas</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="consulta">
+    <section class="intro">
+      <h1>Consulta el estado de tu denuncia</h1>
+      <p>Introduce el número de radicado y la fecha en que realizaste la denuncia.</p>
+    </section>
+
+    <section class="formulario">
+      <form id="formConsulta">
+        <label for="radicado">Número de radicado *</label>
+        <input type="text" id="radicado" name="radicado" required>
+
+        <label for="fecha">Fecha de la denuncia *</label>
+        <input type="date" id="fecha" name="fecha" required>
+
+        <button type="submit" class="btn">Consultar</button>
+      </form>
+
+      <div id="resultadoConsulta" class="resultado"></div>
+
+      <p class="ayuda">
+        ¿Olvidaste tu número de radicado? <a href="recuperar.html">Recupéralo aquí</a> (solo para denuncias personales).
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="denuncia.html">Denuncia</a></li>
+      <li><a href="consultas.html">Consulta</a></li>
+      <li><a href="preguntas.html">Preguntas</a></li>
+    </ul>
+    <p>&copy; 2025 ComunicaLO. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+  document.getElementById("formConsulta").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const radicado = document.getElementById("radicado").value.trim();
+    const fecha = document.getElementById("fecha").value;
+    const resultado = document.getElementById("resultadoConsulta");
+
+    resultado.innerHTML = "<p>Consultando...</p>";
+
+    try {
+      const res = await fetch(`/api/consulta?radicado=${encodeURIComponent(radicado)}&fecha=${encodeURIComponent(fecha)}`);
+      const data = await res.json();
+
+      if (res.ok) {
+      resultado.innerHTML = `
+        <div class="card-resultado">
+          <h3>Resultado de la consulta</h3>
+          <p><strong>Estado:</strong> ${data.estado}</p>
+          <p><strong>Observación:</strong> ${data.observacion}</p>
+          <p><strong>Fecha de resolución:</strong> ${data.fecha_resolucion}</p>
+        </div>
+      `;
+    } else {
+      resultado.innerHTML = `<p class="error">${data.mensaje || "Denuncia no encontrada"}</p>`;
+    }
+  } catch (error) {
+    console.error(error);
+    resultado.innerHTML = `<p class="error">Error al consultar la denuncia. Intenta de nuevo.</p>`;
+  }
+});
+</script>
+
+</body>
+</html>

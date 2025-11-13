@@ -1,0 +1,50 @@
+.consulta .intro {
+  color: #006666;
+  text-align: center;
+  margin: 40px auto;
+  max-width: 600px;
+}
+
+.consulta .formulario {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+}
+
+.consulta label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.consulta input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.consulta .btn {
+  margin-top: 20px;
+  background-color: #006666;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.consulta .resultado {
+  margin-top: 20px;
+  font-size: 1.1em;
+  color: #333;
+}
+
+.consulta .ayuda {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 0.9em;
+}

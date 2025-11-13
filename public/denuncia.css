@@ -1,0 +1,131 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.denuncia-personal {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.denuncia-personal h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: #008080;
+}
+
+.denuncia-personal p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input,
+textarea {
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #008080;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #006666;
+}
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 15px;
+  border: 1px solid #c3e6cb;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+.tarjeta {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f0fff0;
+  border: 2px solid rgb(206, 44, 71);
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.tarjeta h2 {
+  color: rgb(206, 44, 71);
+  margin-bottom: 10px;
+}
+
+.codigo-radicado {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+  margin: 10px 0;
+}
+.tarjeta p {
+  font-size: 1.1em;
+  color: #555;
+}
+.popup {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-contentenido {
+  position: relative;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  animation: aparecer 0.3s ease-out;
+}
+
+.popup-contentenido .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+}
+
+@keyframes aparecer {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.popup .codigo-radicado {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #333;
+  margin: 20px 0;
+}

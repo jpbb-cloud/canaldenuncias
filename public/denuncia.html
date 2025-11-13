@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Denuncia Personal</title>
+  <link rel="stylesheet" href="style.css">       <!-- Estilos generales -->
+  <link rel="stylesheet" href="denuncia.css">    <!-- Estilos específicos -->
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="logo.png" alt="ComunicaLO">
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="denuncia.html">Denuncia</a></li>
+        <li><a href="consultas.html">Consulta</a></li>
+        <li><a href="preguntas.html">Preguntas</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="denuncia-personal">
+    <section class="intro">
+      <h1>¿Qué se puede denunciar a través de este formulario?</h1>
+      <p>
+        A nivel general se puede denunciar la posible comisión de un delito 
+        o cualquier incumplimiento que vaya en contra del Código de Conducta Ética,
+        normas internas de la organización, o cualquiera legislación de obligado
+        cumplimiento de las Sociedades. 
+      </p>
+    </section>
+
+    <section class="formulario">
+      <form id="form-denuncia">
+        <label for="modoDenuncia">Modo de denuncia *</label>
+        <select id="modoDenuncia" name="modoDenuncia" required onchange="ajustarModoDenuncia()">
+          <option value="">Seleccione una opción</option>
+          <option value="identificada">Denuncia personal</option>
+          <option value="anonima">Denuncia anónima</option>
+        </select>
+      <div id="datosPersonales">  
+        <label for="nombre">Nombre completo *</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="email">Correo electrónico *</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="telefono">Teléfono de contacto</label>
+        <input type="tel" id="telefono" name="telefono">
+      </div>
+
+        <label for="tipo">Tipo de denuncia *</label>
+        <select id="tipo" name="tipo" required>
+          <option value="">Seleccione una opción</option>
+          <option value="fraude">Fraude</option>
+          <option value="corrupcion">Corrupción</option>
+          <option value="acoso">Acoso</option>
+          <option value="discriminacion">Discriminación</option>
+          <option value="robo">Incumplimiento de políticas</option>
+          <option value ="seguridad">Seguridad y salud laboral</option>
+          <option value="otro">Otro</option>
+        </select>
+
+        <label for="fecha">Fecha del incidente *</label>
+        <input type="date" id="fecha" name="fecha" required>
+
+        <label for="relacion">Relación con la empresa *</label>
+        <select id="relacion" name="relacion" required>
+          <option value="">Seleccione una opción</option>
+          <option value="empleado">Empleado</option>
+          <option value="cliente">Cliente</option>
+          <option value="proveedor">Proveedor</option>
+          <option value="visitante">Visitante</option>
+          <option value="otro">Otro</option>
+
+        </select> 
+        <label for="testigo">Algún miembro de la empresa tiene conocimiento de los hechos?</label>
+        <select id="testigo" name="testigo" required>
+          <option value="">Seleccione una opción</option>
+          <option value="si">Sí</option>
+          <option value="no">No</option>
+        </select>
+
+        <div id="campoTestigo" style="display: none; margin-top: 15px;">
+         <label for="nombreTestigo">Nombre completo del testigo *</label>
+         <input type="text" id="nombreTestigo" name="nombreTestigo">
+        </div>
+ 
+
+        <label for="asunto">Asunto *</label>
+        <input type="text" id="asunto" name="asunto" required>
+
+        <label for="mensaje">Descripción de la denuncia *</label>
+        <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
+
+        <button type="submit" class="btn">Enviar denuncia</button>
+      </form>
+    </section>
+  </main>
+
+      <div id="tarjetaRadicado" class="tarjeta" style="display: none;">
+        <h2>Denuncia enviada con éxito</h2>
+        <p>Tu número de radicado es:</p>
+        <div class="codigo-radicado" id="codigoRadicado"></div>
+        <p>Guarda este número para consultar el estado de tu denuncia.</p>
+      </div>
+
+  <footer>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="denuncia.html">Denuncia</a></li>
+      <li><a href="consultas.html">Consulta</a></li>
+      <li><a href="preguntas.html">Preguntas</a></li>
+    </ul>
+    <p>&copy; 2025 ComunicaLO. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+  function mostrarCampoTestigo() {
+    const select = document.getElementById("testigo");
+    const campo = document.getElementById("campoTestigo");
+    const input = document.getElementById("nombreTestigo");
+
+    if (select.value === "si") {
+      campo.style.display = "block";
+      input.required = true;
+    } else {
+      campo.style.display = "none";
+      input.required = false;
+      input.value = ""; // Limpia el campo si se oculta
+    }
+  }
+</script>
+<script>
+  document.getElementById("testigo").addEventListener("change", mostrarCampoTestigo);
+  function ajustarModoDenuncia() {
+  const modo = document.getElementById("modoDenuncia").value;
+  const datos = document.getElementById("datosPersonales");
+
+  const nombre = document.getElementById("nombre");
+  const email = document.getElementById("email");
+  const telefono = document.getElementById("telefono");
+
+  if (modo === "anonima") {
+    datos.style.display = "none";
+    nombre.required = false;
+    email.required = false;
+    nombre.value = "";
+    email.value = "";
+    telefono.value = "";
+
+    //mostrar popup de advertencia
+    mostrarPopupAnonima();
+  } else {
+    datos.style.display = "block";
+    nombre.required = true;
+    email.required = true;
+  }
+}
+</script>
+
+<script>
+function generarRadicado() {
+  const fecha = new Date().toISOString().slice(0, 10).replace(/-/g, "");
+  const aleatorio = Math.floor(1000 + Math.random() * 9000);
+  return `RAD-${fecha}-${aleatorio}`;
+}
+</script>
+<div id="popupRadicado" class="popup" style="display: none;">
+    <div class="popup-contentenido">
+      <span class="close" onclick="cerrarPopup()">&times;</span>
+      <h2>Denuncia enviada con éxito</h2>
+      <p>Tu número de radicado es:</p>
+      <div class="codigo-radicado" id="codigoRadicadoPopup"></div>
+      <p>Guarda este número para consultar el estado de tu denuncia.</p>
+    </div>
+  </div>
+
+  <script>
+    function cerrarPopup() {
+      document.getElementById("popupRadicado").style.display = "none";
+    }
+  </script>
+  <div id="popupAnonima" class="popup">
+  <div class="popup-contentenido">
+    <h2>Importante</h2>
+    <p>Tomé nota de su número de radicado.</p>
+    <p>Para las denuncias anónimas no se puede recuperar la información posteriormente.</p>
+    <button class="btn" onclick="cerrarPopupAnonima()" style="margin-top: 20px;">Entendido </button>
+  </div>
+</div>
+
+<script>
+  function cerrarPopupAnonima() {
+    document.getElementById("popupAnonima").style.display = "none";
+  }
+
+  function mostrarPopupAnonima() {
+    document.getElementById("popupAnonima").style.display = "block";
+  }
+</script>
+
+<script>
+document.getElementById("form-denuncia").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const radicado = generarRadicado();
+  const datos = {
+    tipo: document.getElementById("tipo").value,
+    fecha_incidente: document.getElementById("fecha").value,
+    estado: "Pendiente",
+    detalle: {
+      nombre_completo: document.getElementById("nombreTestigo").value || "Desconocido",
+      conocimiento: document.getElementById("testigo").value === "si" ? 1 : 0,
+      asunto: document.getElementById("asunto").value,
+      detalle: document.getElementById("mensaje").value
+    },
+    usuario: {
+      relacion_empresa: document.getElementById("relacion").value,
+      anonimo: document.getElementById("modoDenuncia").value === "anonima" ? 1 : 0,
+      nombre_completo: document.getElementById("nombre").value || null,
+      correo: document.getElementById("email").value || null,
+      telefono: document.getElementById("telefono").value || null
+    },
+    radicado
+  };
+
+  const res = await fetch('http://localhost:3000/api/denuncias', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(datos)
+  });
+
+  const resultado = await res.json();
+  if (resultado.error) {
+    alert("Error al registrar la denuncia: " + resultado.error);
+  } else {
+    document.getElementById("codigoRadicado").textContent = radicado;
+    document.getElementById("tarjetaRadicado").style.display = "block";
+    document.getElementById("codigoRadicadoPopup").textContent = radicado;
+    document.getElementById("popupRadicado").style.display = "block";
+    this.reset();
+  }
+});
+</script>
+</body>
+</html>

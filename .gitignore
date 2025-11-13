@@ -1,0 +1,10 @@
+# Archivos sensibles
+.env
+*.key
+*.pem
+*.crt
+
+# Configuraciones locales
+.vscode/
+node_modules/
+.DS_Store

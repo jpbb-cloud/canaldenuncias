@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preguntas Frecuentes</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="preguntas.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="logo.png" alt="ComunicaLO">
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="denuncia.html">Denuncia</a></li>
+        <li><a href="consultas.html">Consulta</a></li>
+        <li><a href="preguntas.html" class="active">Preguntas</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="preguntas-frecuentes">
+    <h1>Preguntas Frecuentes</h1>
+
+    <section class="faq">
+      <div class="pregunta">
+        <button class="acordeon">¿Qué tipo de denuncias puedo realizar?</button>
+        <div class="respuesta">
+          <p>Puedes denunciar cualquier hecho que infrinja el Código de Conducta Ética, normas internas o legislación aplicable.</p>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <button class="acordeon">¿Puedo hacer una denuncia anónima?</button>
+        <div class="respuesta">
+          <p>Sí, puedes realizar denuncias anónimas. Ten en cuenta que no podrás recuperar el número de radicado posteriormente.</p>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <button class="acordeon">¿Qué sucede después de enviar una denuncia?</button>
+        <div class="respuesta">
+          <p>Recibirás un número de radicado que te permitirá consultar el estado de tu denuncia. El equipo de cumplimiento evaluará el caso.</p>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <button class="acordeon">¿Cómo puedo consultar el estado de mi denuncia?</button>
+        <div class="respuesta">
+          <p>Puedes consultar el estado de tu denuncia utilizando el número de radicado y la fecha de la denuncia en la sección de consultas de nuestro sitio web.</p>
+        </div>
+        </div>
+
+      <div class="pregunta">
+        <button class="acordeon">¿Mis datos personales estarán protegidos?</button>
+        <div class="respuesta">
+          <p>Sí, todos los datos personales proporcionados serán tratados con estricta confidencialidad y de acuerdo con nuestra política de privacidad.</p>
+        </div>
+        </div>
+
+        <div class="pregunta">  
+            <button class="acordeon">¿Puedo actualizar mi denuncia después de enviarla?</button>
+            <div class="respuesta">
+              <p>Una vez enviada la denuncia, no es posible modificarla. Sin embargo, puedes enviar información adicional a través del canal de consultas.</p>
+            </div>
+          </div>
+
+      <div class="pregunta">
+        <button class="acordeon">¿Cuánto tiempo responderán a mi denuncia?</button>
+        <div class="respuesta">
+          <p>El tiempo de respuesta puede variar según la complejidad del caso. Nos comprometemos a mantenerte informado sobre el estado de tu denuncia.</p>
+        </div>
+
+      <!-- Puedes añadir más preguntas aquí -->
+    </section>
+  </main>
+
+  <footer>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="denuncia.html">Denuncia</a></li>
+      <li><a href="consultas.html">Consulta</a></li>
+      <li><a href="preguntas.html">Preguntas</a></li>
+    </ul>
+    <p>&copy; 2025 ComunicaLO. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    const acordeones = document.querySelectorAll(".acordeon");
+    acordeones.forEach(btn => {
+      btn.addEventListener("click", () => {
+        btn.classList.toggle("activo");
+        const panel = btn.nextElementSibling;
+        panel.style.display = panel.style.display === "block" ? "none" : "block";
+      });
+    });
+  </script>
+
+</body>
+</html>

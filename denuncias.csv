@@ -1,0 +1,57 @@
+id_usuario,relacion_empresa,anonimo,nombre_completo,correo,telefono
+1,cliente,1,,,
+2,cliente,1,,,
+3,visitante,0,"Jesica BB",jesica@bb.com,65454-545461
+4,visitante,1,,,
+5,visitante,1,,,
+6,empleado,1,,,
+7,cliente,1,,,
+8,empleado,0,"Pepito Perez",pepito@pepito.com,54451654-2121
+9,cliente,1,,,
+10,empleado,0,"Maria Lopez",Maril@gmail.com,3548741-5421
+11,empleado,1,,,
+12,cliente,1,,,
+13,cliente,1,,,
+14,cliente,1,,,
+15,proveedor,1,,,
+16,visitante,1,,,
+17,proveedor,0,"Marcos Linares",marcos@linares.com,654641-5454
+18,proveedor,1,,,
+19,visitante,1,,,
+id_denunciado,nombre_completo,conocimiento,asunto,detalle
+1,Desconocido,0,Prueba,Prueba
+2,"Jesi B",1,"Corrupción","El proveedor estaba sobornando al vendedor"
+3,Desconocido,0,Hola2,"Esta es otra prueba, gracias"
+4,Desconocido,0,"Sin aviso","Un cliente invadió un espacio censurado del edificio. "
+5,Desconocido,0,"Dinero b","El dinero que ingresa a la oficina no se registra"
+6,Desconocido,0,Fraude,"Vi un fraude"
+7,Desconocido,0,Corrupcion,"Vi un caso de corrupción."
+8,"Magola Lila",1,"Driscrimanción","Me dijo que era un enano."
+9,"Pepito Perez",1,Fraude,"Vi a pepito haciendo fraude con las plantillas de facturación."
+10,Desconocido,0,"Golpe en la empresa","Me caí bajando de las escaleras y RPL no quiere hacerse cargo."
+11,Desconocido,0,"Actualizar campo","esto es una prueba para actualizar un campo"
+12,Desconocido,0,"Corrupción2","Vi otro caso de corrupcion"
+13,Desconocido,0,"Prueba Jesica ","Hola esto es una prueba nueva "
+14,Desconocido,0,"Prueba Jesica ","Esta es otra prueba 123"
+15,Desconocido,0,"Prueba Jesica ","Esta es otra prueba 2123"
+16,Desconocido,0,Visitante,"No pude entrar"
+17,"Pepito Perez",1,"No cumplen las políticas ","Revisar el manual, sus empleados no cumplen las politicas"
+18,Desconocido,0,"SIN SEGURIDAD","NO HAY SEGURIDAD"
+19,Desconocido,0,"Declaro Fraude","Vi un fraude"
+id_denuncia,tipo,fecha_incidente,fecha_denuncia,estado,detalle_id_denuncia,archivo_nom,archivo_ruta,archivo_tipo,usuario_id_usuario,fecha_resolucion,observacion,radicado
+1,fraude,2025-11-05,"2025-11-10 10:03:28",Pendiente,1,,,,1,,,
+2,corrupcion,2025-11-06,"2025-11-10 10:08:11",Pendiente,2,,,,2,,,
+3,acoso,2025-11-03,"2025-11-10 10:10:48",Pendiente,3,,,,3,,,
+4,robo,2025-11-05,"2025-11-10 11:05:22",Pendiente,4,,,,4,,,
+5,corrupcion,2025-11-05,"2025-11-10 11:11:35",Pendiente,5,,,,5,,,
+6,fraude,2025-11-05,"2025-11-10 11:20:40",Pendiente,6,,,,6,,,
+7,corrupcion,2025-11-07,"2025-11-10 11:36:48",Pendiente,7,,,,7,,,
+8,discriminacion,2025-11-03,"2025-11-10 11:41:45",Pendiente,8,,,,8,,,
+9,fraude,2025-11-05,"2025-11-10 11:47:13",Pendiente,9,,,,9,,,
+10,seguridad,2025-10-27,"2025-11-10 11:53:17",Pendiente,10,,,,10,,,
+11,corrupcion,2025-11-06,"2025-11-10 12:38:57",Pendiente,11,,,,11,,,
+12,corrupcion,2025-11-12,"2025-11-10 13:03:08",Pendiente,12,,,,12,,,
+13,corrupcion,2025-11-05,"2025-11-11 09:49:35","En revisión",16,,,,16,2025-11-12,JKHSDONFJBSBGJKDFVGDBFG,RAD-20251105-1762854575609
+14,robo,2025-11-04,"2025-11-11 10:19:03",Pendiente,17,,,,17,,,RAD-20251104-1762856343567
+15,seguridad,2025-11-03,"2025-11-11 11:00:05",Pendiente,18,,,,18,,,RAD-20251103-1762858805903
+16,fraude,2025-11-01,"2025-11-11 11:24:54",Pendiente,19,,,,19,,,RAD-20251101-1762860294259

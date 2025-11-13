@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Actualizar Denuncia</title>
+  <link rel="stylesheet" href="style.css">       <!-- Estilos generales -->
+  <link rel="stylesheet" href="actualizar.css">    <!-- Estilos específicos -->
+  </head>
+<body>
+  <header>
+    <nav>
+      <div class="logo"><img src="logo.png" alt="ComunicaLO"></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="denuncia.html">Denuncia</a></li>
+        <li><a href="consultas.html">Consulta</a></li>
+        <li><a href="preguntas.html">Preguntas</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="actualizar_denuncia">
+    <section class="intro">
+      <h1>Actualizar el estado de una denuncia</h1>
+      <p>Introduce el número de radicado y los nuevos detalles para actualizar la denuncia.</p>
+    </section>
+
+    <section class="formulario">
+<form id="formActualizar">
+  <label for="radicado">Número de radicado *</label>
+  <input type="text" id="radicado" required>
+
+  <label for="estado">Nuevo estado *</label>
+  <select id="estado" required>
+    <option value="Pendiente">Pendiente</option>
+    <option value="En revisión">En revisión</option>
+    <option value="Cerrada">Cerrada</option>
+  </select>
+
+  <label for="observacion">Observación</label>
+  <textarea id="observacion" rows="4"></textarea>
+
+  <label for="fecha_resolucion">Fecha de resolución</label>
+  <input type="date" id="fecha_resolucion">
+
+  <button type="submit">Actualizar denuncia</button>
+</form>
+
+<div id="resultado"></div>
+
+<script>
+document.getElementById("formActualizar").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const radicado = document.getElementById("radicado").value.trim();
+  const estado = document.getElementById("estado").value;
+  const observacion = document.getElementById("observacion").value;
+  const fecha_resolucion = document.getElementById("fecha_resolucion").value;
+
+  const res = await fetch(`/api/denuncias/${radicado}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ estado, observacion, fecha_resolucion })
+  });
+
+  const data = await res.json();
+  document.getElementById("resultado").textContent = data.mensaje || data.error;
+});
+</script>

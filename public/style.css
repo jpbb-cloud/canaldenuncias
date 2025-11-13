@@ -1,0 +1,123 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+header {
+  background-color: #f9f9f9;
+  padding: 1em;
+  color: black;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 0 160px;
+} 
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1em;
+}
+
+.nav-links a {
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5em 1em;
+}
+
+.hero {
+  background-image: url('sg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 60px 80px;
+  color: black;
+  text-align: center; /* o right, según prefieras */
+}
+
+.hero p {
+  font-size: 1.4em;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.acciones {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  padding: 2em;
+}
+
+.card {
+  background-color: white;
+  padding: 1em;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.card img {
+  width: 120px;
+  height: auto;
+  margin-bottom: 1em;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1em;
+  padding: 0.5em 1em;
+  background-color: #008080;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.faq {
+  text-align: center;
+  padding: 2em;
+  background-color: #f0f0f0;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 1em;
+  text-align: center;
+}
+
+footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  padding: 0;
+  margin: 0 0 1em 0;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.logo img {
+  width: 150px;       /* Ajusta el tamaño horizontal */
+  height: auto;       /* Mantiene proporción */
+}
+
+.intro-acciones {
+  max-width: 800px;
+  margin: 40px auto 20px auto;
+  padding: 0 20px;
+  font-size: 1.1em;
+  color: #333;
+  text-align: center;
+}
+.intro-acciones p {
+  margin: 10px 0;
+}

@@ -1,0 +1,41 @@
+.preguntas-frecuentes {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.preguntas-frecuentes h1 {
+  font-size: 2.5em;
+  color: #008080;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.faq .pregunta {
+  margin-bottom: 15px;
+}
+
+.acordeon {
+  background-color: #008080;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  font-size: 1.1em;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.acordeon:hover {
+  background-color: #006666;
+}
+
+.respuesta {
+  display: none;
+  padding: 15px;
+  background-color: #f1f1f1;
+  border-left: 4px solid #008080;
+  border-radius: 0 0 4px 4px;
+}
